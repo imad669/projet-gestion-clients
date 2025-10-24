@@ -1,0 +1,39 @@
+﻿@model Gestions_Client_Commande.Models.Commande
+
+@{
+    ViewData["Title"] = "Ajouter une commande pour " + ViewBag.NomClient;
+}
+
+<h2>Ajouter une commande pour @ViewBag.NomClient</h2>
+
+<form asp-action="Creer" method="post">
+    <!-- Champ caché pour relier la commande au bon client -->
+    <input type="hidden" asp-for="IdClient" value="@ViewBag.IdClient" />
+
+    <div class="form-group">
+        <label asp-for="DateCommande"></label>
+        <input asp-for="DateCommande" class="form-control" type="date" />
+        <span asp-validation-for="DateCommande" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Montant"></label>
+        <input asp-for="Montant" class="form-control" type="number" step="0.01" />
+        <span asp-validation-for="Montant" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">💾 Ajouter</button>
+    <a asp-controller="Client" asp-action="Commandes" asp-route-id="@ViewBag.IdClient" class="btn btn-secondary">Annuler</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

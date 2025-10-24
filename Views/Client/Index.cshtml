@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Gestions_Client_Commande.Models.Client>
+
+<h1>Liste des clients</h1>
+
+<p>
+    <a asp-action="Creer" class="btn btn-success">+ Ajouter un nouveau client</a>
+</p>
+
+@if (Model == null || !Model.Any())
+{
+    <p>Aucun client trouvé.</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead class="table-light">
+            <tr>
+                <th>Nom</th>
+                <th>Courriel</th>
+                <th>Téléphone</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var client in Model)
+            {
+                <tr>
+                    <td>@client.Nom</td>
+                    <td>@client.Courriel</td>
+                    <td>@client.Telephone</td>
+                    <td>
+                        <a asp-action="Modifier" asp-route-id="@client.IdClient">Modifier</a> |
+                        <a asp-action="Commandes" asp-route-id="@client.IdClient">Commandes</a> |
+                        <a asp-action="Rapport" asp-route-id="@client.IdClient">Rapport</a> |
+                        <a asp-action="Supprimer" asp-route-id="@client.IdClient" class="text-danger">Supprimer</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

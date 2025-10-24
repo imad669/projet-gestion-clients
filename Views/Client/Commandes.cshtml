@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Gestions_Client_Commande.Models.Commande>
+
+@{
+    ViewData["Title"] = "Commandes de " + ViewBag.NomClient;
+}
+
+<h2>Commandes de @ViewBag.NomClient</h2>
+
+<!-- Bouton pour ajouter une nouvelle commande -->
+<p>
+    <a asp-controller="Commande" asp-action="Creer" asp-route-idClient="@ViewBag.IdClient" class="btn btn-primary">
+        + Ajouter une commande
+    </a>
+</p>
+
+@if (!Model.Any())
+{
+    <p>Aucune commande enregistrée pour ce client.</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Montant</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var commande in Model)
+            {
+                <tr>
+                    <td>@commande.DateCommande.ToShortDateString()</td>
+                    <td>@commande.Montant.ToString("C")</td>
+                    <td>@commande.Description ?? "Sans description"</td>
+                    <td>
+                        <a asp-controller="Commande" asp-action="Modifier" asp-route-id="@commande.IdCommande">Modifier</a> |
+                        <a asp-controller="Commande" asp-action="Supprimer" asp-route-id="@commande.IdCommande">Supprimer</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<a asp-controller="Client" asp-action="Index" class="btn btn-secondary mt-3">← Retour à la liste des clients</a>

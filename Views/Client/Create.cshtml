@@ -1,0 +1,24 @@
+﻿@model Gestions_Client_Commande.Models.Client
+
+<h2>Ajouter un client</h2>
+
+<form asp-action="Creer" method="post">
+    <div class="form-group">
+        <label asp-for="Nom"></label>
+        <input asp-for="Nom" class="form-control" />
+        <span asp-validation-for="Nom" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Courriel"></label>
+        <input asp-for="Courriel" class="form-control" />
+        <span asp-validation-for="Courriel" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Telephone"></label>
+        <input asp-for="Telephone" class="form-control" />
+        <span asp-validation-for="Telephone" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Ajouter</button>
+</form>
+
+<a asp-action="Index" class="btn btn-secondary mt-3">← Retour à la liste</a>

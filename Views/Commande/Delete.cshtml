@@ -1,0 +1,18 @@
+﻿@model Gestions_Client_Commande.Models.Commande
+
+<h2>Supprimer la commande</h2>
+
+<p>Voulez-vous vraiment supprimer cette commande ?</p>
+
+<div>
+    <p>ID Commande : @Model.IdCommande</p>
+    <p>ID Client : @Model.IdClient</p>
+    <p>Date de la commande : @Model.DateCommande.ToShortDateString()</p>
+    <p>Montant : @Model.Montant.ToString("C")</p>
+</div>
+
+<form asp-action="ConfirmerSuppression" method="post" onsubmit="return confirm('Confirmez-vous la suppression de cette commande ?');">
+    <input type="hidden" asp-for="IdCommande" />
+    <button type="submit" class="btn btn-danger">Supprimer</button>
+    <a asp-action="Index" class="btn btn-secondary">Annuler</a>
+</form>

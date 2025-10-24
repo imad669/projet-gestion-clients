@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Gestions_Client_Commande.Models.Commande>
+
+<h2>Rapport des commandes - @ViewBag.NomClient</h2>
+<p>Total Montant : @ViewBag.TotalMontant</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id Commande</th>
+            <th>Date Commande</th>
+            <th>Montant</th>
+            <!-- ajouter d'autres colonnes si besoin -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var commande in Model)
+        {
+            <tr>
+                <td>@commande.IdCommande</td>
+                <td>@commande.DateCommande.ToString("dd/MM/yyyy")</td>
+                <td>@commande.Montant.ToString("C")</td>
+                <!-- autres colonnes -->
+            </tr>
+        }
+    </tbody>
+</table>
