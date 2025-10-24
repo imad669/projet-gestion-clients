@@ -54,6 +54,4 @@ Ce projet est sous licence MIT. Voir le fichier LICENSE pour plus de détails.
 
 ## Auteur
 
-Ton nom ou pseudo  
-ton.email@example.com  
-https://github.com/ton-utilisateur
+
