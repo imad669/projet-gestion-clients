@@ -1,0 +1,13 @@
+﻿@model Gestions_Client_Commande.Models.Commande
+
+<h2>Détails de la commande</h2>
+
+<div>
+    <p>ID Commande : @Model.IdCommande</p>
+    <p>ID Client : @Model.IdClient</p>
+    <p>Date de la commande : @Model.DateCommande.ToShortDateString()</p>
+    <p>Montant : @Model.Montant.ToString("C")</p>
+</div>
+
+<a asp-action="Modifier" asp-route-id="@Model.IdCommande" class="btn btn-primary">Modifier</a>
+<a asp-action="Index" class="btn btn-secondary">Retour à la liste</a>
