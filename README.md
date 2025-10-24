@@ -52,6 +52,6 @@ Les contributions sont les bienvenues. Merci de forker le projet et proposer vos
 
 Ce projet est sous licence MIT. Voir le fichier LICENSE pour plus de détails.
 
-## Auteur
+
 
 
